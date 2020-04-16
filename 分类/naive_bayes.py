@@ -31,6 +31,10 @@ def naviebayes():
 
     # 得出准确率
     print("准确率为：", mlt.score(x_test, y_test))
+    
+    # 精确率、召回率和f1-score
+    print("精确率、召回率和f1-score：")
+    print(classification_report(y_test, y_predict, target_names=news.target_names))
 
 
 if __name__ == '__main__':
