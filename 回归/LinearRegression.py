@@ -97,11 +97,19 @@ def ridge():
     std_y = StandardScaler()
     y_train = std_y.fit_transform(y_train.reshape(-1, 1))  # 将目标值数据改为二维
     y_test = std_y.transform(y_test.reshape(-1, 1))
+    
+     # 使用保存的模型预测结果
+    # model = joblib.load("./model/test.pkl")
+    # y_predict = std_y.inverse_transform(model.predict(x_test))
+    # print("保存的模型预测的结果：", y_predict)
 
     # 岭回归方式预测房价
     rd = Ridge(alpha=1.0)  # alpha一般（0~1）（1~10）
     rd.fit(x_train, y_train)
     print(rd.coef_)
+    
+     # 保存训练好的模型
+    # joblib.dump(rd, "./model/test.pkl")
 
     # 预测测试集的房子价格
     y_predict = std_y.inverse_transform(rd.predict(x_test))
