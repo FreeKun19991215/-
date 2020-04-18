@@ -3,6 +3,7 @@ from sklearn.linear_model import LinearRegression, SGDRegressor, Ridge
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error
+from sklearn.externals import joblib
 
 
 def linear_regression():
